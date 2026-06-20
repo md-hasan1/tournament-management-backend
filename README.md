@@ -12,7 +12,36 @@ This project is a comprehensive backend API service designed to power a sports t
 - **Payment Processing**: Integrated payment flows with support for discount overrides.
 - **Real-time Notifications**: Alerts and updates for essential user and system activities.
 
+## 🚀 Getting Started
+
+Follow these instructions to clone the repository, install dependencies, and run the server locally.
+
+### Prerequisites
+- Node.js (v16 or higher recommended)
+- npm or yarn
+
+### 1. Clone the Repository
+\`\`\`bash
+git clone https://github.com/md-hasan1/tournament-management-backend.git
+cd tournament-management-backend
+\`\`\`
+
+### 2. Install Dependencies
+\`\`\`bash
+npm install
+\`\`\`
+
+### 3. Environment Variables
+Create a \`.env\` file in the root directory and configure your environment variables (database connection, JWT secrets, email credentials, etc.).
+
+### 4. Run Locally
+To start the development server:
+\`\`\`bash
+npm run dev
+\`\`\`
+
 ---
+
 
 ## 🛣️ API Routes Documentation
 
