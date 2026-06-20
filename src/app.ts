@@ -17,7 +17,8 @@ export const corsOptions = {
     "http://localhost:3000",
     "https://bacuff-frontend.vercel.app",
     "https://crownandpitch.com",
-    "https://www.crownandpitch.com"
+    "https://www.crownandpitch.com",
+    "https://tournament-management-frontend.vercel.app"
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
