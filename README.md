@@ -1,85 +1,190 @@
-# API Documentation
+# API Routes Documentation
 
-## Table of Contents
-- [Auth Routes](#auth-routes)
+This document outlines all the available REST API endpoints for the application.
 
-## Auth Routes
-- **POST /auth/login**: Login a user
-- **POST /auth/logout**: Logout a user
-- **GET /auth/get-me**: Retrieve the profile of the logged-in user
-- **PUT /auth/change-password**: Change the password of the logged-in user
-- **POST /auth/forgot-password**: Initiate password reset process
-- **POST /auth/reset-password**: Complete password reset process
+## Users (`/users`)
 
-## User Routes
-- **POST /users**: Create a new user
-- **POST /users/create-admin**: Create a new admin user
-- **GET /users**: Retrieve all users
-- **GET /users/:id**: Retrieve a single user by ID
-- **PUT /users/:id**: Update a user by ID
-- **DELETE /users/:id**: Delete a user by ID
+| HTTP Method | Endpoint Path | 
+| :--- | :--- |
+| **POST** | `/users` | 
+| **GET** | `/users` | 
+| **GET** | `/users/admin/home-page` | 
+| **GET** | `/users/:id` | 
+| **PUT** | `/users/profile` | 
+| **PATCH** | `/users/delete/:id` | 
+| **PUT** | `/users/toggle-block/:id` | 
+| **POST** | `/users/support/message` | 
+| **POST** | `/users/upload-photo` | 
+| **PUT** | `/users/player/profile/:id` | 
+| **GET** | `/users/activity/logs` | 
 
-____________________________________________________________________________________
+## Auth (`/auth`)
 
-                               Deployment
-____________________________________________________________________________________ 
+| HTTP Method | Endpoint Path | 
+| :--- | :--- |
+| **POST** | `/auth/login` | 
+| **POST** | `/auth/logout` | 
+| **GET** | `/auth/profile` | 
+| **PUT** | `/auth/change-password` | 
+| **POST** | `/auth/forgot-password` | 
+| **POST** | `/auth/resend-otp` | 
+| **POST** | `/auth/verify-otp` | 
+| **POST** | `/auth/reset-password` | 
 
-Step 1: convert all .ts file to .js file:
---------------------------------------------------------------------------
-npm run build
+## Notifications (`/notifications`)
 
-Step 2: Create {vercel.json} in root and Paste below code:
------------------------------------------------------------------------------
-{
-    "version": 2,
-    "builds": [
-        {
-            "src": "dist/server.js",
-            "use": "@vercel/node"
-        }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "dist/server.js"
-        }
-    ]
-}
-Again npm run build.
+| HTTP Method | Endpoint Path | 
+| :--- | :--- |
+| **POST** | `/notifications/send-noti` | 
+| **GET** | `/notifications/all-noti` | 
+| **GET** | `/notifications/get-noti` | 
+| **GET** | `/notifications/unread-noti` | 
+| **PATCH** | `/notifications/read-noti` | 
+| **POST** | `/notifications/send-group-noti` | 
+| **DELETE** | `/notifications/delete-noti/:notificationId` | 
 
-Step 3: Install vercel:
----------------------------
-npm i -g vercel
+## Tournaments (`/tournaments`)
 
-vercel -v (check installation)
+| HTTP Method | Endpoint Path | 
+| :--- | :--- |
+| **POST** | `/tournaments` | 
+| **GET** | `/tournaments` | 
+| **GET** | `/tournaments/get/by/userId/:id` | 
+| **PUT** | `/tournaments/:id` | 
+| **DELETE** | `/tournaments/:id` | 
+| **DELETE** | `/tournaments/division/:divisionId` | 
+| **GET** | `/tournaments/division/:teamDivisionId/teams` | 
+| **POST** | `/tournaments/division/:divisionId/generate` | 
+| **GET** | `/tournaments/division/:divisionId/schedule` | 
+| **PATCH** | `/tournaments/match/:matchId/edit` | 
+| **PATCH** | `/tournaments/division/:divisionId/publish` | 
+| **GET** | `/tournaments/division/:divisionId/standings` | 
+| **GET** | `/tournaments/series/:divisionName/leaderboard` | 
+| **POST** | `/tournaments/team/:teamId/discount/override` | 
 
-Step 4: Login through terminal:
------------------------------------------
-vercel login
+## Team Registrations (`/team-registrations`)
 
-Step 5: Production:
------------------------------------------
-vercel --prod
+| HTTP Method | Endpoint Path | 
+| :--- | :--- |
+| **POST** | `/team-registrations` | 
+| **GET** | `/team-registrations` | 
+| **GET** | `/team-registrations/my-team` | 
+| **GET** | `/team-registrations/my-team/:id` | 
+| **GET** | `/team-registrations/all/:teamId` | 
+| **GET** | `/team-registrations/all/:teamId` | 
+| **GET** | `/team-registrations/history/:teamId` | 
+| **GET** | `/team-registrations/details-history/:teamId` | 
+| **GET** | `/team-registrations/dashboard/:teamId` | 
+| **GET** | `/team-registrations/:registrationId` | 
+| **PUT** | `/team-registrations/:id` | 
+| **DELETE** | `/team-registrations/:id` | 
+| **POST** | `/team-registrations/invite-manager/:teamId` | 
+| **POST** | `/team-registrations/send-mail/:id` | 
+| **POST** | `/team-registrations/:registrationId/cancel` | 
 
-set up and deploy?: y
+## Team Players (`/team-players`)
 
-Which Scope?: enter
+| HTTP Method | Endpoint Path | 
+| :--- | :--- |
+| **POST** | `/team-players` | 
+| **GET** | `/team-players` | 
+| **GET** | `/team-players/:id` | 
+| **PUT** | `/team-players/:id` | 
+| **DELETE** | `/team-players/:id` | 
 
-Link to Existing: n
+## Referees (`/referees`)
 
-Whats your project name?: enter
+| HTTP Method | Endpoint Path | 
+| :--- | :--- |
+| **POST** | `/referees` | 
+| **GET** | `/referees` | 
+| **GET** | `/referees/get/by/userId` | 
+| **PUT** | `/referees/:id` | 
+| **DELETE** | `/referees/:id` | 
 
-In which Directory?: enter
+## Players (`/players`)
 
-After that vercel will give some links. Copy inspect link, open in browser. Click on project name above. Select overview and copy the link given below Domains. This is the actual production link which will work for all. Link will be like this: {gym-class-scheduling-and-membership-self.vercel.app}. Or
+| HTTP Method | Endpoint Path | 
+| :--- | :--- |
+| **GET** | `/players` | 
+| **GET** | `/players/dashboard` | 
+| **GET** | `/players/schedule` | 
+| **POST** | `/players` | 
 
-go to vercel website:
-https://vercel.com/dashboard
+## Coaches (`/coaches`)
 
-Selcet Project  And copy the link given below Domains. This is the actual production link which will work for all. Link will be like this: {gym-class-scheduling-and-membership-self.vercel.app}
+| HTTP Method | Endpoint Path | 
+| :--- | :--- |
+| **POST** | `/coaches` | 
+| **GET** | `/coaches` | 
+| **GET** | `/coaches/get/by/userId` | 
+| **GET** | `/coaches/:id` | 
+| **PUT** | `/coaches/:id` | 
+| **DELETE** | `/coaches/:id` | 
 
-After any changes, retype vercel --prod in terminal.
+## Payments (`/payments`)
 
+| HTTP Method | Endpoint Path | 
+| :--- | :--- |
+| **GET** | `/payments` | 
+| **POST** | `/payments/stripe` | 
 
+## Series (`/series`)
 
+| HTTP Method | Endpoint Path | 
+| :--- | :--- |
+| **POST** | `/series` | 
+| **GET** | `/series` | 
+| **GET** | `/series/get/by/userId` | 
+| **PUT** | `/series/:id` | 
+| **DELETE** | `/series/:id` | 
+
+## Teaminvitations (`/teaminvitations`)
+
+| HTTP Method | Endpoint Path | 
+| :--- | :--- |
+| **POST** | `/teaminvitations/:id` | 
+| **GET** | `/teaminvitations` | 
+| **GET** | `/teaminvitations/get/by/userId` | 
+| **GET** | `/teaminvitations/:id` | 
+| **PUT** | `/teaminvitations/:id` | 
+| **DELETE** | `/teaminvitations/:id` | 
+| **GET** | `/teaminvitations/get/by/coachId` | 
+| **PUT** | `/teaminvitations/respond/:id` | 
+
+## Schedules (`/schedules`)
+
+| HTTP Method | Endpoint Path | 
+| :--- | :--- |
+| **POST** | `/schedules` | 
+| **GET** | `/schedules` | 
+| **GET** | `/schedules/:id` | 
+| **PUT** | `/schedules/:id` | 
+| **PUT** | `/schedules/week/:weekId/capacity` | 
+| **DELETE** | `/schedules/:id` | 
+
+## Camp Registrations (`/camp-registrations`)
+
+| HTTP Method | Endpoint Path | 
+| :--- | :--- |
+| **POST** | `/camp-registrations` | 
+| **GET** | `/camp-registrations/participants` | 
+| **GET** | `/camp-registrations/:id` | 
+| **PUT** | `/camp-registrations/player/:playerId/move-session` | 
+| **PUT** | `/camp-registrations/:id/cancel` | 
+| **PUT** | `/camp-registrations/:id/pay` | 
+| **PUT** | `/camp-registrations/:id/refund` | 
+| **GET** | `/camp-registrations/dashboard/overview` | 
+
+## Camp Waitlist (`/camp-waitlist`)
+
+| HTTP Method | Endpoint Path | 
+| :--- | :--- |
+| **POST** | `/camp-waitlist` | 
+| **GET** | `/camp-waitlist` | 
+| **GET** | `/camp-waitlist/stats` | 
+| **POST** | `/camp-waitlist/:id/confirm-offer` | 
+| **PATCH** | `/camp-waitlist/:id/move-to-session` | 
+| **GET** | `/camp-waitlist/getSingle/:id` | 
+| **DELETE** | `/camp-waitlist/:id` | 
 
