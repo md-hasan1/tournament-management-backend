@@ -1,6 +1,22 @@
-# API Routes Documentation
+# Tournament Management Backend
 
-This document outlines all the available REST API endpoints for the application.
+## 🎯 Project Purpose
+This project is a comprehensive backend API service designed to power a sports tournament and camp management platform. It seamlessly handles core operations ranging from user authentication and team rostering to complex tournament scheduling, camp registrations, and payment processing.
+
+## ✨ Key Features
+- **User & Role Management**: Robust authentication system supporting Players, Coaches, Referees, and Administrators.
+- **Tournament & Series Management**: End-to-end handling of tournaments, divisions, and series leaderboards.
+- **Team & Roster Building**: Dynamic team creation, player invitations, and complete roster management.
+- **Match Scheduling**: Tracking of matches, scores, schedules, and division standings.
+- **Camp Registrations**: Built-in system for managing training camps, including dynamic capacity waitlists.
+- **Payment Processing**: Integrated payment flows with support for discount overrides.
+- **Real-time Notifications**: Alerts and updates for essential user and system activities.
+
+---
+
+## 🛣️ API Routes Documentation
+
+This section outlines all the available REST API endpoints for the application.
 
 ## Users (`/users`)
 
